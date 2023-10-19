@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: monitoring
+resources:
+  - github.com/VictoriaMetrics/operator/config/default?ref=v0.39.0
+  - vmcluster.yaml
+  - vmagent.yaml
+  - vmservicescrape.yaml
+
+images:
+  - name: victoriametrics/operator
+    newTag: v0.39.0
